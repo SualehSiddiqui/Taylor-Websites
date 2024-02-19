@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailor Measurement Book</title>
+  <link rel="stylesheet" href="card.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Tailor Measurement Book</h1>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search...">
+    </div>
+    <button id="addCardBtn">Add New Measurement</button>
+    <div class="card-container" id="cardContainer">
+      <!-- Measurement Cards will be added dynamically using JavaScript -->
+    </div>
+    
+  </div>
+  <div class="modal" id="myModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form id="addMeasurementForm">
+        <div class="form-group">
+          <label for="customer-name">Customer Name:</label>
+          <input type="text" id="customer-name" name="customer-name" required>
+        </div>
+        <div class="form-group">
+          <label for="shirt-length">Shirt Length (inches):</label>
+          <input type="number" id="shirt-length" name="shirt-length" required>
+        </div>
+        <div class="form-group">
+          <label for="chest">Chest (inches):</label>
+          <input type="number" id="chest" name="chest" required>
+        </div>
+        <div class="form-group">
+          <label for="waist">Waist (inches):</label>
+          <input type="number" id="waist" name="waist" required>
+        </div>
+        <div class="form-group">
+          <label for="sleeve-length">Sleeve Length (inches):</label>
+          <input type="number" id="sleeve-length" name="sleeve-length" required>
+        </div>
+        <div class="form-group">
+          <label for="additional-info">Additional Information:</label>
+          <textarea id="additional-info" name="additional-info"></textarea>
+        </div>
+        <button type="submit">Save Measurement</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- <div class="container">
+    <h1>Tailor Measurement Book</h1>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search...">
+    </div>
+    <button id="addCardBtn">Add New Measurement</button>
+    <div class="card-container" id="cardContainer">
+    </div>
+    
+  </div>
+  <div class="modal" id="myModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form id="addMeasurementForm">
+        <div class="form-group">
+          <label for="customer-name">Customer Name:</label>
+          <input type="text" id="customer-name" name="customer-name" required>
+        </div>
+        <div class="form-group">
+          <label for="shirt-length">Shirt Length (inches):</label>
+          <input type="number" id="shirt-length" name="shirt-length" required>
+        </div>
+        <div class="form-group">
+          <label for="chest">Chest (inches):</label>
+          <input type="number" id="chest" name="chest" required>
+        </div>
+        <div class="form-group">
+          <label for="waist">Waist (inches):</label>
+          <input type="number" id="waist" name="waist" required>
+        </div>
+        <div class="form-group">
+          <label for="sleeve-length">Sleeve Length (inches):</label>
+          <input type="number" id="sleeve-length" name="sleeve-length" required>
+        </div>
+        
+        <button type="submit">Save Measurement</button>
+      </form>
+    </div>
+  </div> -->
+  <script src="script.js" type="module"></script>
+</body>
+</html>

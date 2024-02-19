@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Registration</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="form">
+      <h1 class="heading">Sign up for Asif's</h1>
+      <input type="text" placeholder="Username" required id="sign-name">
+      <input type="email" placeholder="Email" required id="sign-email">
+      <input type="password" placeholder="Password" required id="sign-password">
+      <button type="submit" id="sign-btn">Sign Up</button>
+      <p>By signing up, you agree to our Terms, Data Policy, and Cookies Policy.</p>
+      <p>Already have an account? <a href="../index.html">Log in</a></p>
+    </div>
+  </div>
+
+  <script src="../firebase.js" type="module"></script>
+  <script src="../index.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+</body>
+
+</html>
