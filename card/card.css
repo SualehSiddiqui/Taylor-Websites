@@ -20,10 +20,14 @@ h1 {
 }
 
 #searchInput {
-  width: 100%;
+  width: 80%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+.search-container>button {
+  height: 45px;
 }
 
 .card-container {
@@ -96,6 +100,14 @@ h1 {
 #addCardBtn:hover {
   background-color: #45a049;
 }
+
+.delete{
+  text-align: end;
+  cursor: pointer;
+  font-size: large;
+}
+
+
 
 @media only screen and (max-width: 600px) {
   .card {

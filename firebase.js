@@ -4,7 +4,7 @@ import {
     getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import {
-    getFirestore, doc, setDoc, addDoc, collection, getDocs, deleteDoc, query, where
+    getFirestore, doc, setDoc, addDoc, collection, getDocs, deleteDoc, query, where, updateDoc, getDoc
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 
@@ -26,5 +26,5 @@ const db = getFirestore(app);
 
 export {
     auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, db, doc, setDoc,
-    addDoc, collection, getDocs, deleteDoc, query, where
+    addDoc, collection, getDocs, deleteDoc, query, where, updateDoc, getDoc
 }
