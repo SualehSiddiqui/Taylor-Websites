@@ -1,5 +1,5 @@
 import {
-  db, addDoc, collection, getDocs, deleteDoc, doc, query, where, updateDoc, getDoc
+  db, addDoc, collection, getDocs, deleteDoc, doc, query, where, updateDoc, getDoc, signOut, auth
 } from '../firebase.js';
 
 const userUid = localStorage.getItem("userUid");
@@ -202,3 +202,27 @@ const editCard = async (id) => {
 
 window.deleteCard = deleteCard;
 window.editCard = editCard;
+
+
+const logout = () => {
+  signOut(auth).then(() => {
+    localStorage.clear()
+    window.location.replace("index.html")
+    console.log('logout', window.location)
+  }).catch((error) => {
+    // An error happened.
+    console.log("erroe", error)
+  });
+}
+
+
+const logoutBtn = document.getElementById('logout-btn');
+
+logoutBtn.addEventListener('click', logout);
+
+if (!userUid && window.location.pathname != "/index.html" && window.location.pathname != "/register/index.html") {
+  window.location.replace("/index.html")
+} else if (userUid && window.location.pathname != "/card/index.html") {
+  window.location.replace("/card/index.html")
+  console.log("User is signed out")
+}

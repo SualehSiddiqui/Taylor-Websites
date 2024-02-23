@@ -3,15 +3,22 @@ import {
 } from './firebase.js'
 const userUid = localStorage.getItem("userUid");
 
-if (userUid && window.location.pathname != "/card/index.html") {
+// if (userUid && window.location.pathname != "/card/index.html") {
+//     window.location.replace("/card/index.html")
+// } else {
+//     console.log("User is signed out")
+// }
+
+if (!userUid && window.location.pathname != "/index.html" && window.location.pathname != "/register/index.html") {
+    window.location.replace("/index.html")
+} else if (userUid && window.location.pathname != "/card/index.html") {
     window.location.replace("/card/index.html")
-} else {
     console.log("User is signed out")
 }
 
 const loginUser = () => {
-    let email = document.getElementById('login-password');
-    let password = document.getElementById('login-email');
+    let email = document.getElementById('login-email');
+    let password = document.getElementById('login-password');
     console.log('email', email.value, 'password', password.value);
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
