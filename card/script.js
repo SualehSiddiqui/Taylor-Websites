@@ -26,7 +26,9 @@ function createCard(measurement, index, id) {
 }
 
 // Function to render measurement cards
+const spinner = document.getElementById('spinner-div')
 const renderCards = async () => {
+  spinner.style.display = 'block';
   const cardContainer = document.getElementById('cardContainer');
   cardContainer.innerHTML = '';
 
@@ -36,7 +38,7 @@ const renderCards = async () => {
     // doc.data() is never undefined for query doc snapshots
     const card = createCard(doc.data(), index, doc.id);
     cardContainer.appendChild(card);
-
+    spinner.style.display = 'none';
   })
 }
 
@@ -102,21 +104,22 @@ window.onclick = function (event) {
 const addCard = async (event) => {
   event.preventDefault();
 
-  let customerName = document.getElementById('customer-name').value;
-  let shirtLength = document.getElementById('shirt-length').value;
-  let chest = document.getElementById('chest').value;
-  let waist = document.getElementById('waist').value;
-  let sleeveLength = document.getElementById('sleeve-length').value;
-  let additionalInfo = document.getElementById('additional-info').value;
-  let updateDocId = document.getElementById('update-doc-id').value;
+  let customerName = document.getElementById('customer-name');
+  let shirtLength = document.getElementById('shirt-length');
+  let chest = document.getElementById('chest');
+  let waist = document.getElementById('waist');
+  let sleeveLength = document.getElementById('sleeve-length');
+  let additionalInfo = document.getElementById('additional-info');
+  let updateDocId = document.getElementById('update-doc-id');
   if (!edit) {
+    console.log(edit)
     const docRef = await addDoc(collection(db, "measurements"), {
-      customer: customerName,
-      shirtLength: shirtLength,
-      chest: chest,
-      waist: waist,
-      sleeveLength: sleeveLength,
-      additionalInfo: additionalInfo,
+      customer: customerName.value,
+      shirtLength: shirtLength.value,
+      chest: chest.value,
+      waist: waist.value,
+      sleeveLength: sleeveLength.value,
+      additionalInfo: additionalInfo.value,
       uid: userUid
     });
     console.log("Document written with ID: ", docRef.id);
@@ -135,15 +138,15 @@ const addCard = async (event) => {
     additionalInfo = "";
   }
   else {
-    console.log(updateDocId)
-    const measurementRef = doc(db, "measurements", updateDocId);
+    console.log(updateDocId.value)
+    const measurementRef = doc(db, "measurements", updateDocId.value);
     await updateDoc(measurementRef, {
-      customer: customerName,
-      shirtLength: shirtLength,
-      chest: chest,
-      waist: waist,
-      sleeveLength: sleeveLength,
-      additionalInfo: additionalInfo,
+      customer: customerName.value,
+      shirtLength: shirtLength.value,
+      chest: chest.value,
+      waist: waist.value,
+      sleeveLength: sleeveLength.value,
+      additionalInfo: additionalInfo.value,
       uid: userUid
     });
     Swal.fire({
@@ -153,14 +156,16 @@ const addCard = async (event) => {
     });
     renderCards(); // Render the updated cards
     modal.style.display = 'none'; // Close the modal
-    customerName = "";
-    shirtLength = "";
-    chest = "";
-    waist = "";
-    sleeveLength = "";
-    additionalInfo = "";
+    customerName.value = "";
+    shirtLength.value = "";
+    chest.value = "";
+    waist.value = "";
+    sleeveLength.value = "";
+    additionalInfo.value = "";
+    edit = false;
   }
 }
+
 // Handle form submission for adding new measurements
 document.getElementById('addMeasurementForm').addEventListener('submit', addCard);
 
